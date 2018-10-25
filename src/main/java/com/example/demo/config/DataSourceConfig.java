@@ -39,7 +39,11 @@ public class DataSourceConfig {
 		ShardingRuleConfiguration shardingRuleConfig = new ShardingRuleConfiguration();
 		shardingRuleConfig.getTableRuleConfigs().add(getOrderTableRuleConfiguration());
 		shardingRuleConfig.getTableRuleConfigs().add(getOrderBikeTableRuleConfiguration());// 多个分表可以用
-		shardingRuleConfig.getBindingTableGroups().add("orders");
+//		分片规则相同组的放在一起。
+//		例：订单表和订单项表，均按照订单ID分片，则此两张表互为BindingTable关系。
+//		BindingTable关系的多表关联查询不会出现笛卡尔积关联，关联查询效率将大大提升。参考：http://shardingsphere.io/document/current/cn/features/sharding/concept/sql/
+//		shardingRuleConfig.getBindingTableGroups().add("orders,orders_bike");
+		
 		// shardingRuleConfig.setDefaultDatabaseShardingStrategyConfig(
 		//new StandardShardingStrategyConfiguration("order_no", DemoDatabaseShardingAlgorithm.class.getName()));
 		//设置分片策略，自定义分片策略类
@@ -57,7 +61,7 @@ public class DataSourceConfig {
 		// ${} 是一个groovy表达式，[]表示枚举，{...}表示一个范围。
 		// 整个inline表达式最终会是一个笛卡尔积，表示bike_order.orders_0, bike_order.orders_1, bike_order.orders_2, bike_order.orders_3,...
 		orderTableRuleConfig.setActualDataNodes("bike_order.orders_${0..9}");
-		//主键生成列，默认的主键生成算法是snowflake
+		//主键生成列
 		orderTableRuleConfig.setKeyGeneratorColumnName("order_no");
 		return orderTableRuleConfig;
 	}
