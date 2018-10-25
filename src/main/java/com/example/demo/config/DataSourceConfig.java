@@ -69,6 +69,8 @@ public class DataSourceConfig {
     	return orderTableRuleConfig;
     }
     
+    //因为配置了sqlSessionFactory，所以会选择框架默认的配置，
+    //而配置文件中的mybatis.configuration不生效，需要将application.properties  mybatis的congfig加载到类中，再注入到SqlSessionFactoryBean中
     @Bean(name="mybatisConfig")
     @ConfigurationProperties(prefix="mybatis.configuration")
     org.apache.ibatis.session.Configuration configuration() {
