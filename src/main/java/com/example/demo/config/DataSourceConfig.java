@@ -42,6 +42,7 @@ public class DataSourceConfig {
         shardingRuleConfig.getTableRuleConfigs().add(tableRule);
 
         Properties props = new Properties();
+		props.put("sql.show", true);
         return ShardingDataSourceFactory.createDataSource(createDataSourceMap(), shardingRuleConfig, new HashMap<String, Object>(), props);
 	}
 
