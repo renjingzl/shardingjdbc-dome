@@ -1,4 +1,4 @@
-#自己添加数据源配置类
+#自己添加数据源配置类方式
 spring:
   datasource:
     db0:
@@ -9,7 +9,7 @@ spring:
 
 
 
-#整合spring boot 命名空间写法
+#整合spring boot 命名空间方式
 #sharding:
 #  jdbc:
 #    datasource:

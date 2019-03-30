@@ -59,13 +59,14 @@
 			<!--<version>2.0.3</version>-->
 		<!--</dependency>-->
 
+		 <!--自己添加数据源配置类方式-->
 		<dependency>
 			<groupId>io.shardingsphere</groupId>
 			<artifactId>sharding-jdbc-core</artifactId>
 			<version>3.0.0</version>
 		</dependency>
 
-		<!--整合spring boot 命名空间写法-->
+		<!--整合spring boot 命名空间方式-->
 		<!--<dependency>-->
 			<!--<groupId>io.shardingsphere</groupId>-->
 			<!--<artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
