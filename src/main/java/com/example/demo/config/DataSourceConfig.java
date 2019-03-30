@@ -29,7 +29,7 @@ public class DataSourceConfig {
 	private String password;
 
 	@Autowired
-    private BikeOpStatTableShardingAlgorithm bikeOpStatTableShardingAlgorithm;
+    private OrdersTableShardingAlgorithm ordersTableShardingAlgorithm;
 
 	@Bean(name = "shardingDataSource")
 	DataSource getShardingDataSource() throws SQLException {
@@ -37,8 +37,8 @@ public class DataSourceConfig {
         TableRuleConfiguration tableRule = new TableRuleConfiguration();
         tableRule.setLogicTable("orders");
         tableRule.setActualDataNodes("bike_order.orders_$->{0..9}");
-        tableRule.setKeyGeneratorColumnName("order_no");
-        tableRule.setTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("order_no", bikeOpStatTableShardingAlgorithm, null));
+        tableRule.setKeyGeneratorColumnName("order_id");
+        tableRule.setTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("order_no", ordersTableShardingAlgorithm, null));
         shardingRuleConfig.getTableRuleConfigs().add(tableRule);
 
         Properties props = new Properties();

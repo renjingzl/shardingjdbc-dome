@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 @Component
-public class BikeOpStatTableShardingAlgorithm implements PreciseShardingAlgorithm<String> {
+public class OrdersTableShardingAlgorithm implements PreciseShardingAlgorithm<String> {
 	
 	@Override
     public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<String> shardingValue) {
@@ -21,4 +21,6 @@ public class BikeOpStatTableShardingAlgorithm implements PreciseShardingAlgorith
 
         throw new UnsupportedOperationException();
     }
+
+
 }
