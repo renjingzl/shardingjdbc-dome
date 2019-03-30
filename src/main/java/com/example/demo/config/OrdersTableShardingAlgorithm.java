@@ -9,7 +9,7 @@ import java.util.Collection;
 
 @Component
 public class OrdersTableShardingAlgorithm implements PreciseShardingAlgorithm<String> {
-	
+
 	@Override
     public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<String> shardingValue) {
         for (String tableName : availableTargetNames) {
