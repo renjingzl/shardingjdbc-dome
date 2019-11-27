@@ -24,8 +24,7 @@
 	<select id="getOrderList" resultType="com.example.demo.entity.Orders">
 		select
 		<include refid="Base_Column_List" />
-		from orders limit 10, 10
--- 		from orders where order_id >= 10 limit 10
+		from orders order by create_time desc limit 10, 10
 	</select>
 
 </mapper>

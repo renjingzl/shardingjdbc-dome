@@ -28,10 +28,6 @@ spring:
 #          orders:
 #            key-generator-column-name: order_id  #主键
 #            actual-data-nodes: db0.orders_$->{0..9}  #数据节点
-#  #          database-strategy:  #分库策略
-#  #            inline:
-#  #              sharding-column: city_id
-#  #              algorithm-expression: db${city_id % 2}
 #            table-strategy:  #分表策略
 #              standard:
 #                sharding-column: order_no
