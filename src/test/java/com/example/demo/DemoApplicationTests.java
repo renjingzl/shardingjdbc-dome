@@ -10,8 +10,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.entity.Orders;
 import com.example.demo.service.DemoService;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -58,5 +60,41 @@ public class DemoApplicationTests {
 			}
 		}
 		System.out.println("错判次数为:" + sum);
+	}
+
+
+	@Test
+	public void seckill() {
+//		AtomicInteger skuCount = new AtomicInteger(0);
+//		@RequestMapping("/seckill")
+//		public Boolean test1(Long pid) throws Exception {
+//			String key = "666_test_seckill_" + pid;
+//			int i = skuCount.incrementAndGet();
+//			Long userId = 100L + i;
+//			long o =  redisTemplate.opsForValue().increment(key, 1);
+//			if(o <= 6) {
+//				Thread.sleep(2000);
+//				redisTemplate.opsForList().rightPush(pid + "-" + "user", userId.toString());
+//			}
+//        redisTemplate.setEnableTransactionSupport(true);
+//        redisTemplate.watch(key);
+//        Thread.sleep(1000);
+//        Object count = redisTemplate.opsForValue().get(key);
+//        if(Integer.parseInt(count.toString()) == 6) {
+//            redisTemplate.unwatch();
+//            return false;
+//        }
+//        redisTemplate.multi();
+//        redisTemplate.opsForValue().increment(key, 1);
+//        redisTemplate.opsForList().rightPush(pid + "-" + "user", userId.toString());
+//        List list = redisTemplate.exec();
+//        if(list == null || list.isEmpty()) {
+//            System.out.println("秒杀失败");
+//        }else {
+//            System.out.println("秒杀成功");
+//        }
+//        redisTemplate.setEnableTransactionSupport(false);
+//			return true;
+//		}
 	}
 }
