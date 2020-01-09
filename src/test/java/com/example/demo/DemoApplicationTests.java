@@ -65,35 +65,33 @@ public class DemoApplicationTests {
 
 	@Test
 	public void seckill() {
-//		AtomicInteger skuCount = new AtomicInteger(0);
 //		@RequestMapping("/seckill")
-//		public Boolean test1(Long pid) throws Exception {
+//		public Boolean seckill(Long pid) {
 //			String key = "666_test_seckill_" + pid;
-//			int i = skuCount.incrementAndGet();
-//			Long userId = 100L + i;
-//			long o =  redisTemplate.opsForValue().increment(key, 1);
-//			if(o <= 6) {
-//				Thread.sleep(2000);
-//				redisTemplate.opsForList().rightPush(pid + "-" + "user", userId.toString());
+//			int userId = user.incrementAndGet();
+//			redisTemplate.setEnableTransactionSupport(true);
+//			redisTemplate.watch(key);
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
 //			}
-//        redisTemplate.setEnableTransactionSupport(true);
-//        redisTemplate.watch(key);
-//        Thread.sleep(1000);
-//        Object count = redisTemplate.opsForValue().get(key);
-//        if(Integer.parseInt(count.toString()) == 6) {
-//            redisTemplate.unwatch();
-//            return false;
-//        }
-//        redisTemplate.multi();
-//        redisTemplate.opsForValue().increment(key, 1);
-//        redisTemplate.opsForList().rightPush(pid + "-" + "user", userId.toString());
-//        List list = redisTemplate.exec();
-//        if(list == null || list.isEmpty()) {
-//            System.out.println("秒杀失败");
-//        }else {
-//            System.out.println("秒杀成功");
-//        }
-//        redisTemplate.setEnableTransactionSupport(false);
+//			Object count = redisTemplate.opsForValue().get(key);
+//			if (count != null && Integer.parseInt(count.toString()) == 5) {
+//				redisTemplate.unwatch();
+//				return false;
+//			}
+//			redisTemplate.multi();
+//			redisTemplate.opsForValue().increment(key, 1);
+//			redisTemplate.opsForList().rightPush(pid + "-" + "user", userId + "");
+//			List list = redisTemplate.exec();
+//			//队列不执行的原因：没有执行exec；监控的key发送了改变；取消事务discard
+//			if (list == null || list.isEmpty()) {
+//				System.out.println(userId + "秒杀失败");
+//			} else {
+//				System.out.println(userId + "秒杀成功");
+//			}
+//			redisTemplate.setEnableTransactionSupport(false);
 //			return true;
 //		}
 	}
