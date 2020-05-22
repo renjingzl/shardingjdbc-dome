@@ -674,4 +674,25 @@ public class Answer {
 			}
 		}
 	}
+
+	/**
+	 *
+	*/
+	@Test
+	public void test30() {
+		int a[] = new int[] {2,3,4,2,5,4,3,4,8};
+		Map<Integer, Integer> res = new LinkedHashMap<>();
+		Map<Integer, Integer> map = new LinkedHashMap<>();
+		for (int i = 0; i < a.length; i++) {
+			if(!map.containsKey(a[i])) {
+				if(!res.containsKey(a[i])) {
+					res.put(a[i], i);
+				}else  {
+					res.remove(a[i]);
+					map.put(a[i],i);
+				}
+			}
+		}
+		System.out.println(res.keySet().toArray()[0]);
+	}
 }
