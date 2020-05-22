@@ -3,15 +3,7 @@ package com.example.demo;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -658,5 +650,28 @@ public class Answer {
 			}
 		}
 		System.out.println(sumMax);
+	}
+
+	/**
+	 * 找出数组中第一个不重复的数，例：[2，3，4，2，5，4，3，8]，结果：5
+	 * 还可以使用冒泡排序的思想，两层循环。第一个数和后面每个数比，如果重复就跳出内循环，内循环结束了还没有重复的那结果就是这个数了
+	 */
+	@Test
+	public void test29() {
+		int a[] = new int[] {2,3,4,2,5,4,3,4,8};
+		Map<Integer, Integer> map = new LinkedHashMap<>();
+		for (int i = 0; i < a.length; i++) {
+			Integer integer = map.putIfAbsent(a[i], 0);
+//			System.out.println(a[i] + "--->" +integer);
+			if(integer != null) {
+				map.put(a[i], map.get(a[i]) + 1);
+			}
+		}
+		for(Integer key : map.keySet()) {
+			if(map.get(key) == 0) {
+				System.out.println(key);
+				break;
+			}
+		}
 	}
 }
