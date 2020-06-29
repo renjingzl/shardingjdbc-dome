@@ -30,6 +30,36 @@ public class Answer {
 		}
 	}
 
+	/**
+	 * 二分查找
+	*/
+	@Test
+	public void test111() {
+		int[] arr = new int[] { 2, 3, 5, 10, 13, 15, 32 };
+		int i = 72;
+		System.out.println(get(arr, i));
+
+	}
+	public static int get(int[] arr, int key) {
+		int start = 0;
+		int end = arr.length - 1;
+		int middel = 0;
+		if(key < arr[start] || key > arr[end] || start > end) {
+			return -1;
+		}
+		while (start <= end) {
+			middel = (start + end)/2;
+			if(arr[middel] < key) {
+				start = middel + 1;
+			}else if(arr[middel] > key) {
+				end = middel - 1;
+			}else {
+				return arr[middel];
+			}
+		}
+		return -1;
+	}
+
 	/*
 	 * 翻转字符串
 	 */
@@ -400,7 +430,7 @@ public class Answer {
 			f1 = f;
 			System.out.println("第" + i + "个月：" + f2);
 		}
-		
+
 		//递归：n == 1 || n == 2 , return 1;   else return f(n-1) + f(n-2);
 	}
 
