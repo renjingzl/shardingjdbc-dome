@@ -10,14 +10,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.entity.Orders;
 import com.example.demo.service.DemoService;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
+
 	@Autowired
 	DemoService demoService;
 
