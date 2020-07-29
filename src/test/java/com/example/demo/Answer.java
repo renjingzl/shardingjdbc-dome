@@ -725,4 +725,28 @@ public class Answer {
 		}
 		System.out.println(res.keySet().toArray()[0]);
 	}
+
+	/**
+	 * 求两个已排序数组的交集
+	*/
+	@Test
+	public void test31() {
+		int a[] = new int[] {2,3,4,8,9};
+		int b[] = new int[] {1,2,4,5,8};
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		int pointerA = 0;
+		int pointerB = 0;
+		while (pointerA < a.length && pointerB < b.length) {
+			if (a[pointerA] < b[pointerB]) {
+				pointerA++;
+			}else if (a[pointerA] > b[pointerB]) {
+				pointerB++;
+			}else {
+				list.add(a[pointerA]);
+				pointerA++;
+				pointerB++;
+			}
+		}
+		list.forEach((e)-> System.out.println(e));
+	}
 }
