@@ -749,4 +749,40 @@ public class Answer {
 		}
 		list.forEach((e)-> System.out.println(e));
 	}
+
+
+	@Test
+	public void test32() {
+        int[] a = new int[]{2,7,6,5,9};
+        int targe = 9;
+        int[] array = towSum(a, targe);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+	public static int[] towSum(int[] a, int targe) {
+		Map<Integer,Integer> map = new HashMap<>();
+		for (int i = 0; i < a.length; i++) {
+			Integer needNum = targe - a[i];
+			if(map.containsKey(needNum)){//map.containsKey时间复杂是O(1)
+				return new int[]{map.get(needNum), i};
+			}
+			map.put(a[i], i);
+		}
+		return null;
+	}
+
+    /**
+     * 返回第一个大于目标值的2的幂的数。
+     * JDK1.7中ConcurrentHashMap初始化segment大小的源码
+    */
+    @Test
+    public void test33() {
+        int targe = 7;
+        int a = 1;
+        while (a <= targe) {
+            a <<= 1;
+        }
+        System.out.println(a);
+    }
 }
