@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.arithmetic;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ConcurrentReferenceHashMap;

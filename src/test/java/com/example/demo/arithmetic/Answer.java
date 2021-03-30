@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.arithmetic;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.initialize;
 
 class Outer {
 	public int num = 10;
