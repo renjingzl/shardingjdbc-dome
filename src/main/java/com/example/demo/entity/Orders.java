@@ -1,10 +1,12 @@
 package com.example.demo.entity;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-
+@Data
 public class Orders implements Serializable {
     /**
      * Column: orders_0.order_id
@@ -63,111 +65,15 @@ public class Orders implements Serializable {
 
     /**
      *   创建时间
-     * Column: orders_0.create_time
+     * Column: orders_0.created_at
      @mbggenerated 2018-06-21 10:53:53
      */
     private Date createdAt;
 
     /**
      *   修改时间
-     * Column: orders_0.modify_time
+     * Column: orders_0.updated_at
      @mbggenerated 2018-06-21 10:53:53
      */
     private Date updatedAt;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Integer getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(Integer orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public Integer getPayStatus() {
-        return payStatus;
-    }
-
-    public void setPayStatus(Integer payStatus) {
-        this.payStatus = payStatus;
-    }
-
-    public Integer getPayMethod() {
-        return payMethod;
-    }
-
-    public void setPayMethod(Integer payMethod) {
-        this.payMethod = payMethod;
-    }
-
-    public BigDecimal getPayAmount() {
-        return payAmount;
-    }
-
-    public void setPayAmount(BigDecimal payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public Date getPayTime() {
-        return payTime;
-    }
-
-    public void setPayTime(Date payTime) {
-        this.payTime = payTime;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "OrdersEntity{" +
-                "id=" + id +
-                ", orderNo='" + orderNo + '\'' +
-                ", userId=" + userId +
-                ", orderStatus=" + orderStatus +
-                ", payStatus=" + payStatus +
-                ", payMethod=" + payMethod +
-                ", payAmount=" + payAmount +
-                ", payTime=" + payTime +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
 }

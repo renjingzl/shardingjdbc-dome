@@ -1,40 +1,40 @@
 #自己添加数据源配置类方式
-spring:
-  datasource:
-    db0:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://10.1.11.110:3310/
-      username: baojia_xm
-      password: DgisNKhg
+#spring:
+#  datasource:
+#    db0:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://10.1.11.110:3310/
+#      username: baojia_xm
+#      password: DgisNKhg
 
 
 
 #整合spring boot 命名空间方式
-#sharding:
-#  jdbc:
-#    datasource:
-#      names: db0
-#      db0:
-#        type: com.alibaba.druid.pool.DruidDataSource
-#        driver-class-name: com.mysql.jdbc.Driver
-#        url: jdbc:mysql://10.1.11.110:3310/bike_order
-#        username: baojia_xm
-#        password: DgisNKhg
-#    config:
-#      sharding:
-#        props:
-#          sql.show: true
-#        tables:
-#          orders:
-#            key-generator-column-name: order_id  #主键
-#            actual-data-nodes: db0.orders_$->{0..9}  #数据节点
-#            table-strategy:  #分表策略
-#              standard:
+sharding:
+  jdbc:
+    datasource:
+      names: db0
+      db0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.1.11.110:3310/test
+        username: baojia_xm
+        password: DgisNKhg
+    config:
+      sharding:
+        props:
+          sql.show: true
+        tables:
+          orders:
+            key-generator-column-name: order_id  #主键
+            actual-data-nodes: db0.orders_$->{0..9}  #数据节点
+            table-strategy:  #分表策略
+              standard:
+                sharding-column: order_no
+                precise-algorithm-class-name: com.example.demo.config.OrdersTableShardingAlgorithm
+#              inline:
 #                sharding-column: order_no
-#                precise-algorithm-class-name: com.example.demo.config.OrdersTableShardingAlgorithm
-##              inline:
-##                sharding-column: order_no
-##                algorithm-expression: orders_$->{order_no % 10} #算法行表达式，需符合groovy语法
+#                algorithm-expression: orders_$->{order_no % 10} #算法行表达式，需符合groovy语法
 
 
 

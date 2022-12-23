@@ -22,7 +22,7 @@ public class DemoApplicationTest {
 
 	@Test
 	public void contextLoads() {
-		Orders order = demoService.getOrder("297454965260130006");
+		Orders order = demoService.getOrder("297454965260130001");
 		System.out.println("查询结果：" + order);
 	}
 

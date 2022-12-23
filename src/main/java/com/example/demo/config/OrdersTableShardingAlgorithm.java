@@ -14,13 +14,10 @@ public class OrdersTableShardingAlgorithm implements PreciseShardingAlgorithm<St
     public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<String> shardingValue) {
         for (String tableName : availableTargetNames) {
             System.out.println("tableName: " + tableName);
-            if (tableName.endsWith(Long.parseLong(shardingValue.getValue().toString()) % 10+"")) {
+            if (tableName.endsWith(Long.parseLong(shardingValue.getValue()) % 10+"")) {
                 return tableName;
             }
         }
-
         throw new UnsupportedOperationException();
     }
-
-
 }

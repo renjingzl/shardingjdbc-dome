@@ -4,13 +4,8 @@
 	namespace="com.example.demo.mapper.OrdersMapper">
 
 	<sql id="Base_Column_List">
-		order_id, order_no, user_id, bike_id, order_status, cancel_type, cancel_time,
-		return_type,
-		order_type, order_amount, pay_status, pay_method, pay_amount, pay_time,
-		operate_area_id,
-		company_id, city_code, ad_code, give_mi_amount, mi_amount, create_time,
-		modify_time,
-		refund_status, refund_amount, brands_id, refund_time,total_amount
+		order_no, user_id, pay_amount, order_status, pay_status, pay_method,
+		pay_time, created_at, updated_at
 	</sql>
 
 
@@ -24,7 +19,7 @@
 	<select id="getOrderList" resultType="com.example.demo.entity.Orders">
 		select
 		<include refid="Base_Column_List" />
-		from orders order by create_time desc limit 10, 10
+		from orders order by created_at desc limit 10, 10
 	</select>
 
 </mapper>
