@@ -1,3 +1,4 @@
+#API 变更历史：https://shardingsphere.apache.org/document/5.0.0/cn/reference/api-change-history/shardingsphere-jdbc/spring-boot-starter/
 #shardingsphere3.x自己添加数据源配置类方式
 #spring:
 #  datasource:
@@ -9,7 +10,7 @@
 
 
 
-#shardingsphere3.x整合spring boot
+#shardingsphere3.x整合spring boot starter
 #sharding:
 #  jdbc:
 #    datasource:
