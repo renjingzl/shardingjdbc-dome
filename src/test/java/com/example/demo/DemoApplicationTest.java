@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.mapper.ZkqClientMapper;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
 import org.junit.Test;
@@ -11,14 +12,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.demo.entity.Orders;
 import com.example.demo.service.DemoService;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTest {
 
 	@Autowired
-	DemoService demoService;
+	private DemoService demoService;
+	@Autowired
+	private ZkqClientMapper zkqClientMapper;
 
 	@Test
 	public void contextLoads() {
@@ -30,6 +36,27 @@ public class DemoApplicationTest {
 	public void getOrderList() {
         List<Orders> orderList = demoService.getOrderList();
         orderList.forEach((e)-> System.out.println("查询结果：" + e));
+	}
+
+	@Test
+	public void saveOrder() {
+		Orders orders = new Orders();
+		orders.setOrderNo("297454965260130002");
+		orders.setUserId(2L);
+		orders.setPayAmount(new BigDecimal("32"));
+		orders.setOrderStatus(1);
+		orders.setPayStatus(1);
+		orders.setPayMethod(1);
+		orders.setPayTime(new Date());
+		orders.setCreatedAt(new Date());
+		orders.setUpdatedAt(new Date());
+		demoService.saveOrder(orders);
+	}
+
+	@Test
+	public void getzkqClient() {
+		Map<String, Object> map = zkqClientMapper.selectByPrimaryKey(1L);
+		map.forEach((k,v)-> System.out.println(k + "--->" + v));
 	}
 
 

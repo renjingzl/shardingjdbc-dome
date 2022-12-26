@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ public class Orders implements Serializable {
      * Column: orders_0.order_id
      @mbggenerated 2018-06-21 10:53:53
      */
+    @TableId
     private Long id;
 
     /**

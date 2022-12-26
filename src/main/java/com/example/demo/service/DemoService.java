@@ -10,4 +10,6 @@ public interface DemoService {
 
 	List<Orders> getOrderList();
 
+	void saveOrder(Orders orders);
+
 }

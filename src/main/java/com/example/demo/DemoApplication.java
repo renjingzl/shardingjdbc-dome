@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.example.demo.mapper")
-@ForestScan(basePackages = "com.example.demo")
+//@ForestScan(basePackages = "com.example.demo")
 public class DemoApplication {
 
 	public static void main(String[] args) {

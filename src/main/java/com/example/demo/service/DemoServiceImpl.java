@@ -24,4 +24,9 @@ public class DemoServiceImpl implements DemoService{
 	public List<Orders> getOrderList() {
 		return ordersMapper.getOrderList();
 	}
+
+	@Override
+	public void saveOrder(Orders orders) {
+		ordersMapper.insert(orders);
+	}
 }
