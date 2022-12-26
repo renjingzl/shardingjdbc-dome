@@ -8,16 +8,17 @@
 5、新增5.0版本，仅需yml中的配置
 
 
+
 CREATE TABLE `orders_0` (
-  `id` bigint NOT NULL COMMENT '主键，自动生成',
-  `order_no` varchar(255) DEFAULT NULL,
-  `user_id` bigint DEFAULT NULL,
-  `pay_amount` decimal(20,2) DEFAULT NULL,
-  `order_status` int DEFAULT NULL,
-  `pay_status` int DEFAULT NULL,
-  `pay_method` int DEFAULT NULL,
-  `pay_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` bigint NOT NULL COMMENT '主键',
+  `order_no` varchar(255) NOT NULL COMMENT '订单号',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `pay_amount` decimal(20,2) NOT NULL DEFAULT '0' COMMENT '支付金额',
+  `order_status` int NOT NULL COMMENT '订单状态 1-已预约 2-已取车 3-已还车 4-已取消',
+  `pay_status` int NOT NULL DEFAULT '0' COMMENT '支付状态 0-未支付 1-支付成功',
+  `pay_method` int DEFAULT NULL COMMENT '支付方式 1-微信 2-支付宝',
+  `pay_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '支付时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

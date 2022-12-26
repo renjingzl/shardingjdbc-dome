@@ -87,7 +87,6 @@ spring:
     # 展示修改以后的sql语句
     props:
       sql-show: true
-      sql-simple: true
 
 
 mybatis:
