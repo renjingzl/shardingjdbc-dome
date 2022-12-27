@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CommonDealerMapper">
+
+    <select id="getCommonDealer" resultType="com.example.demo.entity.CommonDealerEntity">
+        select * FROM tour_common_dealer where code = #{clientCode} limit 1
+    </select>
+
+    <select id="getShuCangCommonDealer" resultType="com.example.demo.entity.AvalonCommonDealer">
+        select * FROM dim_pub_client_sub_account_df_1d where sub_account_code = #{clientCode} limit 1
+    </select>
+</mapper>

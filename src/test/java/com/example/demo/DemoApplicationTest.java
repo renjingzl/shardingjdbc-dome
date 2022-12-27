@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.entity.AvalonCommonDealer;
+import com.example.demo.entity.CommonDealerEntity;
+import com.example.demo.mapper.CommonDealerMapper;
 import com.example.demo.mapper.ZkqClientMapper;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
@@ -25,6 +28,8 @@ public class DemoApplicationTest {
 	private DemoService demoService;
 	@Autowired
 	private ZkqClientMapper zkqClientMapper;
+	@Autowired
+	private CommonDealerMapper commonDealerMapper;
 
 	@Test
 	public void contextLoads() {
@@ -54,13 +59,24 @@ public class DemoApplicationTest {
 	}
 
 	@Test
-	public void getzkqClient() {
+	public void getZkqClient() {
 		Map<String, Object> map = zkqClientMapper.selectByPrimaryKey(1L);
-		map.forEach((k,v)-> System.out.println(k + "--->" + v));
+		System.out.println(map);
 	}
 
+	@Test
+	public void getCommonDealer() {
+		CommonDealerEntity dealer = commonDealerMapper.getCommonDealer("A0032");
+		System.out.println(dealer);
+	}
 
-	/**  
+	@Test
+	public void getShuCangCommonDealer() {
+		AvalonCommonDealer dealer = commonDealerMapper.getShuCangCommonDealer("A0032");
+		System.out.println(dealer);
+	}
+
+	/**
 	 * @Description: 测试防止缓存击穿
 	*/
 	@Test

@@ -41,6 +41,24 @@
 
 #shardingsphere5.x
 spring:
+  datasource:
+    # 动态数据源配置
+    dynamic:
+      datasource:
+        tour:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/tour_business?serverTimezone=GMT%2b8:00&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&useSSL=false
+          username: root
+          password: root
+        avalon:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3307/avalon_ads?serverTimezone=GMT%2b8:00&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&useSSL=false
+          username: root
+          password: root
+      # 指定默认数据源名称
+      primary: tour
   shardingsphere:
     datasource:
       common:
