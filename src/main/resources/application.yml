@@ -35,7 +35,7 @@
 #                precise-algorithm-class-name: com.example.demo.config.OrdersTableShardingAlgorithm
 ##              inline:
 ##                sharding-column: order_no
-##                algorithm-expression: orders$->{order_no % 10} #算法行表达式，需符合groovy语法
+##                algorithm-expression: orders_$->{order_no % 10} #算法行表达式，需符合groovy语法
 
 
 
