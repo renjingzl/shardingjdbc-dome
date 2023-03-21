@@ -420,17 +420,15 @@ public class Answer {
 	@Test
 	public void test19() {
 		int M = 24;
-		int f1 = 1, f2 = 1;
-		int f;
+		int num1 = 1, num2 = 1, num3 = 0;
 		System.out.println("第1个月：" + 1);
 		System.out.println("第2个月：" + 1);
 		for (int i = 3; i <= M; i++) {
-			f = f2;
-			f2 = f1 + f2;
-			f1 = f;
-			System.out.println("第" + i + "个月：" + f2);
+			num3 = num1 + num2;//第三个数=前两个数之和
+			num1 = num2;//把第一个数后移等于第二个数
+			num2 = num3;//把第二个数后移等于第三个数
+			System.out.println("第" + i + "个月：" + num3);
 		}
-
 		//递归：n == 1 || n == 2 , return 1;   else return f(n-1) + f(n-2);
 	}
 
